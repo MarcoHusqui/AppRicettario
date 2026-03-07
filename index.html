@@ -6,390 +6,364 @@
     <title>Il Ricettario di Husqui</title>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        /* Background pattern orientale */
+        .oriental-bg {
+            background: linear-gradient(135deg, #faf8f6 0%, #f5f1ea 50%, #ede5d9 100%);
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .oriental-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(217, 119, 6, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(239, 68, 68, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Stile header elegante */
+        .header-container {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .header-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(217, 119, 6, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(239, 68, 68, 0.08) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .header-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #faf8f6;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+
+        .header-title-secondary {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #faf8f6;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .decorative-line {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #d97706, transparent);
+            margin: 16px auto;
+        }
+
+        .header-subtitle {
+            font-size: 1.1rem;
+            color: #d4af86;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        /* Main container */
+        .main-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* Barra di ricerca elegante */
+        .search-section {
+            margin-bottom: 50px;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #d9a880;
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 20px 14px 50px;
+            border: 2px solid #d9a880;
+            border-radius: 8px;
+            background: white;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #d97706;
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.15);
+            background: #fffbf0;
+        }
+
+        /* Titolo categorie */
+        .categories-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        /* Grid categorie */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        @media (min-width: 768px) {
+            .categories-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Cartelle categoria */
+        .category-folder {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #fff5e6 0%, #fef0d9 100%);
+            border: 2px solid #d9a880;
+            border-radius: 12px;
+            padding: 24px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.1);
+        }
+
+        .category-folder::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .category-folder:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(217, 119, 6, 0.2);
+            background: linear-gradient(135deg, #fef0d9 0%, #fee5cc 100%);
+            border-color: #d97706;
+        }
+
+        .category-folder:hover::before {
+            opacity: 1;
+        }
+
+        .category-folder-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #d97706;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Info box */
+        .info-box {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid #d97706;
+            border-radius: 8px;
+            padding: 24px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+        }
+
+        .info-box-text {
+            text-align: center;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .info-box-highlight {
+            color: #d97706;
+            font-weight: 600;
+        }
+
+        /* Animazioni */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2.5rem;
+            }
+
+            .header-title-secondary {
+                font-size: 2rem;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .category-folder-number {
+                font-size: 3rem;
+            }
+
+            .header-subtitle {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="root"></div>
     
     <script type="text/babel">
-        const { useState, useEffect } = React;
-
-        // Ricette inline con immagini Base64
-        const RICETTE_DATA = [
-            {
-                id: 1,
-                nome: "Pollo Yakitori",
-                categoria: "Piatti Principali",
-                tempo: "30 min",
-                difficolta: "Media",
-                ingredienti: [
-                    "600g petto di pollo",
-                    "100ml salsa di soia",
-                    "50ml mirin",
-                    "25g zucchero",
-                    "2 spicchi aglio",
-                    "Cipollotto"
-                ],
-                procedimento: [
-                    "Tagliare il pollo a cubetti",
-                    "Infilzare alternando pollo e cipollotto negli spiedini",
-                    "Preparare la salsa yakitori mescolando soia, mirin, zucchero e aglio",
-                    "Cuocere gli spiedini alla griglia o piastra per 8-10 minuti",
-                    "Sfogliare la salsa durante la cottura"
-                ],
-                immagine: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAB4AHgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW1 7h5GoEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW1tg=",
-                note: "Piatto giapponese per eccellenza, perfetto per cene estive"
-            },
-            {
-                id: 2,
-                nome: "Pasta al Pesto",
-                categoria: "Piatti Principali",
-                tempo: "15 min",
-                difficolta: "Facile",
-                ingredienti: [
-                    "400g pasta",
-                    "200g basilico fresco",
-                    "100g pinoli",
-                    "80g parmigiano",
-                    "2 spicchi aglio",
-                    "200ml olio EVO"
-                ],
-                procedimento: [
-                    "Scaldare l'acqua per la pasta",
-                    "Nel frattempo, frullare basilico, pinoli, aglio e parmigiano",
-                    "Aggiungere olio EVO al frullato",
-                    "Cuocere la pasta al dente",
-                    "Condire con il pesto"
-                ],
-                note: "Ricetta ligure autentica"
-            },
-            {
-                id: 3,
-                nome: "Risotto ai Funghi",
-                categoria: "Piatti Principali",
-                tempo: "40 min",
-                difficolta: "Media",
-                ingredienti: [
-                    "300g riso Carnaroli",
-                    "300g funghi misti",
-                    "1L brodo vegetale",
-                    "1 cipolla",
-                    "100ml vino bianco",
-                    "100g burro",
-                    "80g parmigiano"
-                ],
-                procedimento: [
-                    "Scaldare il brodo",
-                    "Soffrire cipolla tritata in burro",
-                    "Aggiungere il riso e tostarlo",
-                    "Sfumare con vino bianco",
-                    "Aggiungere brodo gradualmente mescolando",
-                    "Aggiungere funghi precedentemente saltati",
-                    "Mantecatura finale con burro e parmigiano"
-                ],
-                note: "Classico italiano per cene eleganti"
-            },
-            {
-                id: 4,
-                nome: "Carbonara",
-                categoria: "Piatti Principali",
-                tempo: "20 min",
-                difficolta: "Media",
-                ingredienti: [
-                    "400g spaghetti",
-                    "200g guanciale",
-                    "4 tuorli d'uovo",
-                    "100g pecorino romano",
-                    "Pepe nero macinato"
-                ],
-                procedimento: [
-                    "Tagliare il guanciale a cubetti e rosolare",
-                    "Cuocere la pasta al dente",
-                    "Montare tuorli con pecorino e pepe",
-                    "Mantecare pasta con guanciale",
-                    "Aggiungere il composto di tuorli fuori dal fuoco"
-                ],
-                note: "Ricetta romana, servire subito"
-            },
-            {
-                id: 5,
-                nome: "Tiramisu",
-                categoria: "Dolci",
-                tempo: "20 min",
-                difficolta: "Facile",
-                ingredienti: [
-                    "6 uova",
-                    "500g mascarpone",
-                    "100g zucchero",
-                    "400ml caffè espresso",
-                    "60ml liquore (Marsala o Kahlúa)",
-                    "40 biscotti Savoiardi",
-                    "Cacao in polvere"
-                ],
-                procedimento: [
-                    "Montare tuorli con zucchero",
-                    "Aggiungere mascarpone al composto di tuorli",
-                    "Montare gli albumi a neve e incorporare",
-                    "Bagnare leggermente i Savoiardi in caffè e liquore",
-                    "Strato di biscotti bagnati, strato di crema",
-                    "Refrigerare almeno 4 ore",
-                    "Spolverare con cacao prima di servire"
-                ],
-                note: "Dolce italiano per eccellenza, preparare il giorno prima"
-            },
-            {
-                id: 6,
-                nome: "Insalata Caprese",
-                categoria: "Antipasti",
-                tempo: "10 min",
-                difficolta: "Facile",
-                ingredienti: [
-                    "4 pomodori maturi",
-                    "200g mozzarella di bufala",
-                    "Basilico fresco",
-                    "200ml olio EVO",
-                    "Aceto balsamico",
-                    "Sale e pepe"
-                ],
-                procedimento: [
-                    "Tagliare i pomodori a fette spesse",
-                    "Tagliare la mozzarella a fette",
-                    "Alternare pomodoro e mozzarella",
-                    "Aggiungere foglie di basilico",
-                    "Condire con olio EVO, aceto, sale e pepe"
-                ],
-                note: "Piatto estivo fresco e semplice"
-            },
-            {
-                id: 7,
-                nome: "Osso Buco",
-                categoria: "Piatti Principali",
-                tempo: "120 min",
-                difficolta: "Difficile",
-                ingredienti: [
-                    "4 ossi di vitello",
-                    "200g verdure miste",
-                    "400ml vino rosso",
-                    "500ml brodo",
-                    "2 spicchi aglio",
-                    "2 foglie alloro"
-                ],
-                procedimento: [
-                    "Rosolare gli ossi in olio",
-                    "Sfumare con vino rosso",
-                    "Aggiungere verdure e brodo",
-                    "Cuocere in forno a 160°C per 2 ore",
-                    "Servire con risotto alla milanese"
-                ],
-                note: "Piatto lombardo, richiede tempo ma ottimo risultato"
-            },
-            {
-                id: 8,
-                nome: "Bruschetta al Pomodoro",
-                categoria: "Antipasti",
-                tempo: "15 min",
-                difficolta: "Facile",
-                ingredienti: [
-                    "1 pane toscano",
-                    "3 pomodori",
-                    "3 spicchi aglio",
-                    "Basilico fresco",
-                    "150ml olio EVO",
-                    "Sale e pepe"
-                ],
-                procedimento: [
-                    "Tagliare il pane a fette spesse",
-                    "Tostare il pane",
-                    "Strofinare con aglio",
-                    "Condire con pomodori tritati, basilico, olio, sale e pepe"
-                ],
-                note: "Antipasto tradizionale italiano"
-            },
-            {
-                id: 9,
-                nome: "Panna Cotta",
-                categoria: "Dolci",
-                tempo: "20 min",
-                difficolta: "Media",
-                ingredienti: [
-                    "500ml panna fresca",
-                    "100g zucchero",
-                    "1 baccello vaniglia",
-                    "5g colla di pesce",
-                    "200g frutti di bosco"
-                ],
-                procedimento: [
-                    "Riscaldare la panna con zucchero e vaniglia",
-                    "Sciogliere la colla di pesce nel latte freddo",
-                    "Aggiungere la colla alla panna calda",
-                    "Versare negli stampi",
-                    "Refrigerare per 4 ore",
-                    "Decorare con frutti di bosco"
-                ],
-                note: "Dolce elegante e leggero"
-            },
-            {
-                id: 10,
-                nome: "Cacio e Pepe",
-                categoria: "Piatti Principali",
-                tempo: "20 min",
-                difficolta: "Media",
-                ingredienti: [
-                    "400g spaghetti",
-                    "200g pecorino romano",
-                    "20g pepe nero in grani",
-                    "Sale"
-                ],
-                procedimento: [
-                    "Cuocere la pasta al dente in acqua salata",
-                    "Tostare il pepe in una padella",
-                    "Aggiungere il pecorino grattugiato",
-                    "Mantecare la pasta calda con il pepe",
-                    "Aggiungere il pecorino mentre si manteca"
-                ],
-                note: "Ricetta romana semplice ma richiede tecnica"
-            }
-        ];
+        const { useState } = React;
 
         function RicettarioApp() {
-            const [ricette, setRicette] = useState(RICETTE_DATA);
-            const [ricettaSelezionata, setRicettaSelezionata] = useState(null);
-            const [filtroCategoria, setFiltroCategoria] = useState("Tutti");
+            const [searchTerm, setSearchTerm] = useState("");
 
-            const categorie = ["Tutti", ...new Set(ricette.map(r => r.categoria))];
-            const ricetteFiltr = filtroCategoria === "Tutti" 
-                ? ricette 
-                : ricette.filter(r => r.categoria === filtroCategoria);
+            const categories = [
+                { id: 1, name: "1" },
+                { id: 2, name: "2" },
+                { id: 3, name: "3" },
+                { id: 4, name: "4" },
+                { id: 5, name: "5" },
+                { id: 6, name: "6" },
+                { id: 7, name: "7" },
+                { id: 8, name: "8" }
+            ];
 
             return (
-                <div className="min-h-screen bg-gradient-to-br from-orange-50 to-amber-50">
+                <div className="oriental-bg" style={{ background: 'linear-gradient(135deg, #faf8f6 0%, #f5f1ea 50%, #ede5d9 100%)' }}>
                     {/* Header */}
-                    <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white py-8 px-4 shadow-lg">
-                        <h1 className="text-4xl font-bold text-center">🍳 Il Ricettario di Husqui</h1>
-                        <p className="text-center mt-2 text-orange-100">Ricette buone e facili da fare</p>
+                    <div className="header-container">
+                        <div className="header-content">
+                            <h1 className="header-title">IL RICETTARIO</h1>
+                            <h2 className="header-title-secondary">DI HUSQUI</h2>
+                            <div className="decorative-line"></div>
+                            <p className="header-subtitle">Collezione di ricette tradizionali e raffinate</p>
+                        </div>
                     </div>
 
-                    <div className="max-w-6xl mx-auto p-4">
-                        {!ricettaSelezionata ? (
-                            <>
-                                {/* Filtri */}
-                                <div className="flex gap-2 overflow-x-auto py-6 px-2 -mx-2">
-                                    {categorie.map(cat => (
-                                        <button
-                                            key={cat}
-                                            onClick={() => setFiltroCategoria(cat)}
-                                            className={`px-4 py-2 rounded-full whitespace-nowrap font-semibold transition-all ${
-                                                filtroCategoria === cat
-                                                    ? "bg-orange-600 text-white shadow-lg"
-                                                    : "bg-white text-gray-700 border-2 border-orange-200"
-                                            }`}
-                                        >
-                                            {cat}
-                                        </button>
-                                    ))}
-                                </div>
-
-                                {/* Grid Ricette */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-8">
-                                    {ricetteFiltr.map(ricetta => (
-                                        <div
-                                            key={ricetta.id}
-                                            onClick={() => setRicettaSelezionata(ricetta)}
-                                            className="bg-white rounded-lg shadow-md hover:shadow-2xl transition-all cursor-pointer overflow-hidden hover:scale-105 transform"
-                                        >
-                                            {ricetta.immagine && (
-                                                <img 
-                                                    src={ricetta.immagine} 
-                                                    alt={ricetta.nome}
-                                                    className="w-full h-48 object-cover"
-                                                />
-                                            )}
-                                            <div className="p-4">
-                                                <h3 className="text-xl font-bold text-gray-800">{ricetta.nome}</h3>
-                                                <p className="text-sm text-orange-600 font-semibold">{ricetta.categoria}</p>
-                                                <div className="flex gap-4 mt-3 text-sm text-gray-600">
-                                                    <span>⏱️ {ricetta.tempo}</span>
-                                                    <span>📊 {ricetta.difficolta}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </>
-                        ) : (
-                            /* Dettaglio Ricetta */
-                            <div className="bg-white rounded-lg shadow-lg p-6 md:p-8">
-                                <button
-                                    onClick={() => setRicettaSelezionata(null)}
-                                    className="mb-6 px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-all"
-                                >
-                                    ← Torna alle ricette
-                                </button>
-
-                                <div className="grid md:grid-cols-2 gap-8">
-                                    {ricettaSelezionata.immagine && (
-                                        <img 
-                                            src={ricettaSelezionata.immagine}
-                                            alt={ricettaSelezionata.nome}
-                                            className="w-full h-80 object-cover rounded-lg shadow-md"
-                                        />
-                                    )}
-                                    
-                                    <div>
-                                        <h1 className="text-4xl font-bold text-gray-800 mb-2">{ricettaSelezionata.nome}</h1>
-                                        <p className="text-orange-600 text-lg mb-4">{ricettaSelezionata.categoria}</p>
-                                        
-                                        <div className="grid grid-cols-3 gap-4 mb-6">
-                                            <div className="bg-orange-100 p-3 rounded-lg">
-                                                <div className="text-orange-600 text-sm font-semibold">Tempo</div>
-                                                <div className="text-lg font-bold">{ricettaSelezionata.tempo}</div>
-                                            </div>
-                                            <div className="bg-orange-100 p-3 rounded-lg">
-                                                <div className="text-orange-600 text-sm font-semibold">Difficoltà</div>
-                                                <div className="text-lg font-bold">{ricettaSelezionata.difficolta}</div>
-                                            </div>
-                                            <div className="bg-orange-100 p-3 rounded-lg">
-                                                <div className="text-orange-600 text-sm font-semibold">Ingredienti</div>
-                                                <div className="text-lg font-bold">{ricettaSelezionata.ingredienti.length}</div>
-                                            </div>
-                                        </div>
-
-                                        {ricettaSelezionata.note && (
-                                            <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
-                                                <p className="text-sm text-gray-700"><strong>💡 Nota:</strong> {ricettaSelezionata.note}</p>
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-
-                                {/* Ingredienti */}
-                                <div className="mt-8">
-                                    <h2 className="text-2xl font-bold text-gray-800 mb-4">📋 Ingredienti</h2>
-                                    <ul className="grid md:grid-cols-2 gap-3">
-                                        {ricettaSelezionata.ingredienti.map((ing, idx) => (
-                                            <li key={idx} className="flex items-center gap-3 p-2 bg-orange-50 rounded">
-                                                <span className="text-orange-600 font-bold">✓</span>
-                                                <span>{ing}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                {/* Procedimento */}
-                                <div className="mt-8">
-                                    <h2 className="text-2xl font-bold text-gray-800 mb-4">👨‍🍳 Procedimento</h2>
-                                    <ol className="space-y-3">
-                                        {ricettaSelezionata.procedimento.map((step, idx) => (
-                                            <li key={idx} className="flex gap-4 p-4 bg-gray-50 rounded-lg">
-                                                <span className="text-orange-600 font-bold text-lg min-w-fit">Passo {idx + 1}</span>
-                                                <span className="text-gray-700">{step}</span>
-                                            </li>
-                                        ))}
-                                    </ol>
-                                </div>
+                    {/* Main Content */}
+                    <div className="main-content">
+                        {/* Search Bar */}
+                        <div className="search-section">
+                            <div className="search-container">
+                                <span className="search-icon">🔍</span>
+                                <input
+                                    type="text"
+                                    placeholder="Cerca le tue ricette..."
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    className="search-input"
+                                />
                             </div>
-                        )}
+                        </div>
+
+                        {/* Categories Title */}
+                        <h3 className="categories-title">Le tue categorie</h3>
+
+                        {/* Categories Grid */}
+                        <div className="categories-grid">
+                            {categories.map((cat) => (
+                                <div
+                                    key={cat.id}
+                                    className="category-folder"
+                                >
+                                    <div className="category-folder-number">{cat.name}</div>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Info Box */}
+                        <div className="info-box">
+                            <p className="info-box-text">
+                                <span className="info-box-highlight">✨ Benvenuto nel ricettario</span>
+                                <br />
+                                Usa la barra di ricerca per trovare le tue ricette oppure clicca su una categoria per esplorare
+                            </p>
+                        </div>
                     </div>
                 </div>
             );
