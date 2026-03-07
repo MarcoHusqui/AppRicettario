@@ -82,15 +82,6 @@
             color: #faf8f6;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             letter-spacing: -1px;
-            margin-bottom: 8px;
-        }
-
-        .header-title-secondary {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #faf8f6;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            letter-spacing: -1px;
             margin-bottom: 16px;
         }
 
@@ -223,13 +214,196 @@
             opacity: 1;
         }
 
-        .category-folder-number {
-            font-size: 4rem;
-            font-weight: 700;
+        .category-folder-name {
+            font-size: 1.1rem;
+            font-weight: 600;
             color: #d97706;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+            text-align: center;
             position: relative;
             z-index: 1;
+            line-height: 1.3;
+        }
+
+        /* Recipe grid */
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        .recipe-card {
+            background: white;
+            border: 2px solid #e0d5c7;
+            border-radius: 8px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .recipe-card:hover {
+            border-color: #d97706;
+            box-shadow: 0 8px 20px rgba(217, 119, 6, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .recipe-card-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .recipe-card-category {
+            font-size: 0.85rem;
+            color: #d97706;
+            margin-bottom: 12px;
+        }
+
+        .recipe-card-info {
+            display: flex;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #999;
+            flex-wrap: wrap;
+        }
+
+        /* Bio section */
+        .bio-section {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid #d97706;
+            border-radius: 8px;
+            padding: 32px;
+            max-width: 800px;
+            margin: 60px auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+        }
+
+        .bio-title {
+            color: #333;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .bio-subtitle {
+            color: #d97706;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .bio-content {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .bio-placeholder {
+            color: #999;
+            font-style: italic;
+        }
+
+        /* Social links section */
+        .social-section {
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid #e0d5c7;
+        }
+
+        .social-title {
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #fff5e6 0%, #fef0d9 100%);
+            border: 2px solid #d9a880;
+            border-radius: 6px;
+            color: #d97706;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, #fef0d9 0%, #fee5cc 100%);
+            border-color: #d97706;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.15);
+        }
+
+        /* Contact section */
+        .contact-section {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid #e0d5c7;
+            border-radius: 8px;
+            padding: 32px;
+            max-width: 600px;
+            margin: 60px auto;
+            text-align: center;
+            animation: fadeInUp 0.6s ease-out 0.4s both;
+        }
+
+        .contact-title {
+            color: #333;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-item {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .contact-item-label {
+            color: #d97706;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .contact-item-value {
+            color: #333;
+        }
+
+        .contact-item a {
+            color: #d97706;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #d97706;
+            text-decoration: underline;
         }
 
         /* Info box */
@@ -240,7 +414,7 @@
             border-radius: 8px;
             padding: 24px;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 40px auto;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
             animation: fadeInUp 0.6s ease-out 0.3s both;
         }
@@ -254,6 +428,111 @@
         .info-box-highlight {
             color: #d97706;
             font-weight: 600;
+        }
+
+        /* Recipe detail */
+        .recipe-detail {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .back-button {
+            background: #d97706;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-bottom: 30px;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #c4660e;
+        }
+
+        .recipe-detail-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .recipe-detail-category {
+            color: #d97706;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .recipe-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .recipe-detail-item {
+            background: #fff5e6;
+            padding: 16px;
+            border-radius: 6px;
+        }
+
+        .recipe-detail-item-label {
+            color: #d97706;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .recipe-detail-item-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .recipe-detail-notes {
+            background: #fffbf0;
+            border-left: 4px solid #d97706;
+            padding: 16px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .recipe-detail-section {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .recipe-detail-section-title {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 16px;
+        }
+
+        .recipe-ingredients {
+            columns: 2;
+            column-gap: 30px;
+        }
+
+        .recipe-ingredients li {
+            margin-bottom: 12px;
+            color: #666;
+        }
+
+        .recipe-steps ol {
+            margin-bottom: 30px;
+        }
+
+        .recipe-steps li {
+            margin-bottom: 16px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .recipe-steps li strong {
+            color: #d97706;
         }
 
         /* Animazioni */
@@ -274,21 +553,43 @@
                 font-size: 2.5rem;
             }
 
-            .header-title-secondary {
-                font-size: 2rem;
-            }
-
             .categories-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 16px;
             }
 
-            .category-folder-number {
-                font-size: 3rem;
+            .category-folder-name {
+                font-size: 0.95rem;
             }
 
             .header-subtitle {
                 font-size: 0.95rem;
+            }
+
+            .bio-section,
+            .contact-section {
+                padding: 24px;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+
+            .social-link {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .recipe-detail {
+                padding: 24px;
+            }
+
+            .recipe-detail-title {
+                font-size: 1.8rem;
+            }
+
+            .recipe-ingredients {
+                columns: 1;
             }
         }
     </style>
@@ -297,73 +598,220 @@
     <div id="root"></div>
     
     <script type="text/babel">
-        const { useState } = React;
+        const { useState, useEffect } = React;
 
         function RicettarioApp() {
+            const [recipes, setRecipes] = useState([]);
             const [searchTerm, setSearchTerm] = useState("");
+            const [selectedCategory, setSelectedCategory] = useState(null);
+            const [selectedRecipe, setSelectedRecipe] = useState(null);
 
-            const categories = [
-                { id: 1, name: "1" },
-                { id: 2, name: "2" },
-                { id: 3, name: "3" },
-                { id: 4, name: "4" },
-                { id: 5, name: "5" },
-                { id: 6, name: "6" },
-                { id: 7, name: "7" },
-                { id: 8, name: "8" }
-            ];
+            // Carica ricette dal JSON
+            useEffect(() => {
+                fetch('ricette.json')
+                    .then(res => res.json())
+                    .then(data => setRecipes(data.ricette))
+                    .catch(err => console.error('Errore nel caricamento ricette:', err));
+            }, []);
+
+            // Estrai categorie uniche
+            const categories = [...new Set(recipes.map(r => r.category))].sort().map((cat, idx) => ({
+                id: idx + 1,
+                name: cat
+            }));
+
+            // Filtri ricette
+            const filteredRecipes = recipes.filter(recipe => {
+                const matchesSearch = recipe.name.toLowerCase().includes(searchTerm.toLowerCase());
+                const matchesCategory = !selectedCategory || recipe.category === selectedCategory;
+                return matchesSearch && matchesCategory;
+            });
 
             return (
-                <div className="oriental-bg" style={{ background: 'linear-gradient(135deg, #faf8f6 0%, #f5f1ea 50%, #ede5d9 100%)' }}>
+                <div className="oriental-bg">
                     {/* Header */}
                     <div className="header-container">
                         <div className="header-content">
-                            <h1 className="header-title">IL RICETTARIO</h1>
-                            <h2 className="header-title-secondary">DI HUSQUI</h2>
+                            <h1 className="header-title">IL RICETTARIO DI HUSQUI</h1>
                             <div className="decorative-line"></div>
-                            <p className="header-subtitle">Collezione di ricette tradizionali e raffinate</p>
+                            <p className="header-subtitle">La raccolta delle mie migliori ricette</p>
                         </div>
                     </div>
 
                     {/* Main Content */}
                     <div className="main-content">
-                        {/* Search Bar */}
-                        <div className="search-section">
-                            <div className="search-container">
-                                <span className="search-icon">🔍</span>
-                                <input
-                                    type="text"
-                                    placeholder="Cerca le tue ricette..."
-                                    value={searchTerm}
-                                    onChange={(e) => setSearchTerm(e.target.value)}
-                                    className="search-input"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Categories Title */}
-                        <h3 className="categories-title">Le tue categorie</h3>
-
-                        {/* Categories Grid */}
-                        <div className="categories-grid">
-                            {categories.map((cat) => (
-                                <div
-                                    key={cat.id}
-                                    className="category-folder"
-                                >
-                                    <div className="category-folder-number">{cat.name}</div>
+                        {!selectedRecipe ? (
+                            <>
+                                {/* Search Bar */}
+                                <div className="search-section">
+                                    <div className="search-container">
+                                        <span className="search-icon">🔍</span>
+                                        <input
+                                            type="text"
+                                            placeholder="Cerca le tue ricette..."
+                                            value={searchTerm}
+                                            onChange={(e) => setSearchTerm(e.target.value)}
+                                            className="search-input"
+                                        />
+                                    </div>
                                 </div>
-                            ))}
-                        </div>
 
-                        {/* Info Box */}
-                        <div className="info-box">
-                            <p className="info-box-text">
-                                <span className="info-box-highlight">✨ Benvenuto nel ricettario</span>
-                                <br />
-                                Usa la barra di ricerca per trovare le tue ricette oppure clicca su una categoria per esplorare
-                            </p>
-                        </div>
+                                {/* Categories Title */}
+                                <h3 className="categories-title">Le tue categorie</h3>
+
+                                {/* Categories Grid */}
+                                <div className="categories-grid">
+                                    {categories.map((cat) => (
+                                        <div
+                                            key={cat.id}
+                                            className="category-folder"
+                                            onClick={() => {
+                                                setSelectedCategory(selectedCategory === cat.name ? null : cat.name);
+                                                setSearchTerm("");
+                                            }}
+                                            style={{
+                                                borderColor: selectedCategory === cat.name ? '#d97706' : '#d9a880',
+                                                background: selectedCategory === cat.name 
+                                                    ? 'linear-gradient(135deg, #fef0d9 0%, #fee5cc 100%)'
+                                                    : 'linear-gradient(135deg, #fff5e6 0%, #fef0d9 100%)'
+                                            }}
+                                        >
+                                            <div className="category-folder-name">{cat.name}</div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Recipes Grid */}
+                                {filteredRecipes.length > 0 && (
+                                    <>
+                                        <h3 className="categories-title" style={{ marginTop: '40px' }}>
+                                            {searchTerm ? `Risultati per "${searchTerm}"` : selectedCategory || 'Tutte le ricette'}
+                                        </h3>
+                                        <div className="recipes-grid">
+                                            {filteredRecipes.map((recipe) => (
+                                                <div
+                                                    key={recipe.id}
+                                                    className="recipe-card"
+                                                    onClick={() => setSelectedRecipe(recipe)}
+                                                >
+                                                    <div className="recipe-card-name">{recipe.name}</div>
+                                                    <div className="recipe-card-category">{recipe.category}</div>
+                                                    <div className="recipe-card-info">
+                                                        <span>⏱️ {recipe.time}</span>
+                                                        <span>📊 {recipe.difficulty}</span>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </>
+                                )}
+
+                                {/* Bio Section */}
+                                <div className="bio-section">
+                                    <div className="bio-subtitle">Chi sono</div>
+                                    <h2 className="bio-title">Marco Busetti De Luna</h2>
+                                    <div className="bio-content">
+                                        <p className="bio-placeholder">
+                                            [Aggiungerai qui la tua biografia quando avrai tempo]
+                                        </p>
+                                    </div>
+                                    
+                                    <div className="social-section">
+                                        <h3 className="social-title">Seguimi sui social</h3>
+                                        <div className="social-links">
+                                            <a href="#" className="social-link">
+                                                📱 Instagram
+                                            </a>
+                                            <a href="#" className="social-link">
+                                                👥 Facebook
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Contact Section */}
+                                <div className="contact-section">
+                                    <h2 className="contact-title">Contatti</h2>
+                                    <div className="contact-info">
+                                        <div className="contact-item">
+                                            <span className="contact-item-label">Email</span>
+                                            <span className="contact-item-value">
+                                                <a href="mailto:busetti.marco@hotmail.it">busetti.marco@hotmail.it</a>
+                                            </span>
+                                        </div>
+                                        <div className="contact-item">
+                                            <span className="contact-item-label">Telefono</span>
+                                            <span className="contact-item-value">
+                                                <a href="tel:+393923511431">+39 392 351 1431</a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Info Box */}
+                                <div className="info-box">
+                                    <p className="info-box-text">
+                                        <span className="info-box-highlight">✨ Benvenuto nel ricettario</span>
+                                        <br />
+                                        Usa la barra di ricerca per trovare le tue ricette oppure clicca su una categoria per esplorare
+                                    </p>
+                                </div>
+                            </>
+                        ) : (
+                            /* Recipe Detail */
+                            <div className="recipe-detail">
+                                <button 
+                                    onClick={() => setSelectedRecipe(null)}
+                                    className="back-button"
+                                >
+                                    ← Torna indietro
+                                </button>
+
+                                <h1 className="recipe-detail-title">{selectedRecipe.name}</h1>
+                                <p className="recipe-detail-category">{selectedRecipe.category}</p>
+
+                                <div className="recipe-detail-grid">
+                                    <div className="recipe-detail-item">
+                                        <div className="recipe-detail-item-label">Persone</div>
+                                        <div className="recipe-detail-item-value">{selectedRecipe.servings}</div>
+                                    </div>
+                                    <div className="recipe-detail-item">
+                                        <div className="recipe-detail-item-label">Tempo</div>
+                                        <div className="recipe-detail-item-value">{selectedRecipe.time}</div>
+                                    </div>
+                                    <div className="recipe-detail-item">
+                                        <div className="recipe-detail-item-label">Difficoltà</div>
+                                        <div className="recipe-detail-item-value">{selectedRecipe.difficulty}</div>
+                                    </div>
+                                </div>
+
+                                {selectedRecipe.notes && (
+                                    <div className="recipe-detail-notes">
+                                        <p><strong>💡 Nota:</strong> {selectedRecipe.notes}</p>
+                                    </div>
+                                )}
+
+                                <div className="recipe-detail-section">
+                                    <h2 className="recipe-detail-section-title">📋 Ingredienti</h2>
+                                    <ul className="recipe-ingredients">
+                                        {selectedRecipe.ingredients.map((ing, idx) => (
+                                            <li key={idx}>✓ {ing}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div className="recipe-detail-section recipe-steps">
+                                    <h2 className="recipe-detail-section-title">👨‍🍳 Procedimento</h2>
+                                    <ol>
+                                        {selectedRecipe.steps.map((step, idx) => (
+                                            <li key={idx}>
+                                                <strong>Passo {idx + 1}:</strong> {step}
+                                            </li>
+                                        ))}
+                                    </ol>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             );

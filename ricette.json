@@ -1,0 +1,231 @@
+{
+  "ricette": [
+    {
+      "id": 1,
+      "name": "Chili con Carne",
+      "category": "Secondi & Proteine",
+      "servings": "6 persone",
+      "time": "60 minuti",
+      "difficulty": "Facile",
+      "ingredients": [
+        "2 cipolle bianche",
+        "2 spicchi d'aglio",
+        "600g macinato di manzo",
+        "1 birra per sfumare",
+        "700ml passata di pomodoro",
+        "3 scatole fagioli Frijoles",
+        "2 peperoni rossi",
+        "1 provola affumicata",
+        "2 mais piccoli",
+        "2 cubetti cioccolato fondente",
+        "16-24 tortillas medie",
+        "2 confezioni spezie messicane x tacos",
+        "Zucchero q.b.",
+        "Sale q.b.",
+        "Peperoncino fresco q.b."
+      ],
+      "steps": [
+        "In una padella capiente, far soffriggere la cipolla insieme all'aglio leggermente schiacciato.",
+        "Aggiungere i peperoni a cubetti e lasciarli insaporire per qualche minuto.",
+        "Unire la carne macinata e rosolarla bene fino a sigillarla.",
+        "Sfumare con la birra e lasciar evaporare.",
+        "Incorporare le spezie messicane, poi aggiungere i fagioli e la passata di pomodoro.",
+        "Proseguire la cottura regolando di sale e zucchero.",
+        "A fine cottura, completare con provola a cubetti, mais, peperoncino fresco e qualche scaglia di cioccolato fondente.",
+        "Servire con tortillas riscaldate in forno e accompagnare con salse a piacere."
+      ],
+      "notes": "È consigliabile preparare il chili il giorno prima, così avrà il tempo di insaporirsi meglio."
+    },
+    {
+      "id": 2,
+      "name": "Brodo per Tortellini",
+      "category": "Zuppe, Minestre, Vellutate & Creme",
+      "servings": "6-8 persone",
+      "time": "180 minuti",
+      "difficulty": "Media",
+      "ingredients": [
+        "3 sedanini",
+        "3 carote",
+        "1 cipolla",
+        "1 pomodoro",
+        "600-800g spolpati di manzo",
+        "1kg faraona",
+        "4 dadi di carne",
+        "4L acqua fredda",
+        "Sale q.b."
+      ],
+      "steps": [
+        "Mettere in una pentola grande da 6L: sedano, carote, cipolla, pomodoro, manzo e faraona.",
+        "Aggiungere 4L di acqua fredda.",
+        "Accendere il fuoco a media intensità con coperchio.",
+        "Quando bolle, togliere il coperchio e togliere la schiuma 2-3 volte.",
+        "Abbassare a fuoco basso e aggiungere i 4 dadi, salare un poco.",
+        "Coprire e lasciare andare a fuoco lento per 1 ora e mezza.",
+        "Togliere la faraona e rimettere il coperchio per altre 1 ora e mezza.",
+        "Spegnere, togliere verdure e ossa.",
+        "Lasciare il brodo in balcone tutta la notte.",
+        "Il giorno dopo, sgrassare il brodo."
+      ],
+      "notes": "Ricetta della nonna Giulia. Permettere 30 tortellini a testa. Importante sgrassare il brodo il giorno seguente."
+    },
+    {
+      "id": 3,
+      "name": "Pennette alla Vodka",
+      "category": "Primi & Piatti di Cereali",
+      "servings": "2 persone",
+      "time": "25 minuti",
+      "difficulty": "Facile",
+      "ingredients": [
+        "250g pennette",
+        "100g pancetta affumicata (o 150g salmone affumicato)",
+        "100ml vodka",
+        "200ml panna",
+        "200ml sugo di pomodori pelati",
+        "1 cipolla",
+        "Prezzemolo fresco q.b.",
+        "Olio EVO q.b.",
+        "Pepe q.b."
+      ],
+      "steps": [
+        "In una padella grande, rosolare la cipolla con olio.",
+        "Aggiungere la pancetta affumicata (o il salmone affumicato) e farla rosolare.",
+        "Sfumare con la vodka e dare fuoco, attendere che le fiamme si spengano.",
+        "Aggiungere il sugo di pomodoro pelati e la panna.",
+        "Far ridurre il tutto a fuoco medio.",
+        "Scolare la pasta direttamente nella padella.",
+        "Mantecare aggiungendo il prezzemolo fresco (o l'erba cipollina)."
+      ],
+      "notes": "Per una variante più leggera, usare il salmone affumicato al posto della pancetta."
+    },
+    {
+      "id": 4,
+      "name": "Risotto all'Amarone della Valpolicella",
+      "category": "Primi & Piatti di Cereali",
+      "servings": "2 persone",
+      "time": "30 minuti",
+      "difficulty": "Media",
+      "ingredients": [
+        "400g riso Vialone Nano o San Marco",
+        "2 scalogni",
+        "80g burro congelato",
+        "100g Grana Padano grattugiato",
+        "150g formaggio Fontal",
+        "1 bottiglia Amarone della Valpolicella",
+        "1L brodo di carne",
+        "Olio EVO q.b.",
+        "Sale q.b.",
+        "Pepe q.b."
+      ],
+      "steps": [
+        "In una casseruola ampia, versare un filo d'olio e far soffriggere lo scalogno.",
+        "Una volta dorato, mettere lo scalogno da parte e pulire grossolanamente la casseruola.",
+        "Tostare il riso fino a quando sarà così caldo da non riuscire a tenerlo in mano.",
+        "Nel frattempo, scaldare 1 litro di brodo di carne.",
+        "Aggiungere l'Amarone della Valpolicella al riso e iniziare la risottatura, facendo sfumare lentamente tutta la parte alcolica.",
+        "Una volta terminato il vino, proseguire con il brodo, aggiungendolo un mestolo alla volta, fino a cottura ultimata.",
+        "Dopo circa 20 minuti, aggiungere lo scalogno, spegnere il fuoco e spostare la casseruola su un sottopentola.",
+        "Coprire la casseruola con un panno che aderisca bene (mettere un tagliere sopra il panno come peso).",
+        "Lasciare riposare per 3 minuti.",
+        "Aggiungere il Grana Padano e il formaggio Fontal freddi da frigorifero e il burro ghiacciato da freezer.",
+        "Mantecare delicatamente fino a incorporare aria e rendere il risotto cremoso.",
+        "Servire con un mestolo abbondante al centro del piatto, battere leggermente il retro per appiatire il risotto.",
+        "Spolverare con pepe e servire subito."
+      ],
+      "notes": "La manteatura è fondamentale per ottenere la giusta cremosità. Utilizzare ingredienti freddi per il giusto contrasto di temperature."
+    },
+    {
+      "id": 5,
+      "name": "Pane Naan",
+      "category": "Dolci, Colazioni & Lievitati",
+      "servings": "2-4 persone",
+      "time": "480 minuti",
+      "difficulty": "Media",
+      "ingredients": [
+        "500g farina 00",
+        "250ml yogurt bianco naturale",
+        "100ml acqua tiepida",
+        "7g sale",
+        "6g lievito di birra fresco",
+        "Olio EVO q.b.",
+        "Sale q.b.",
+        "Prezzemolo q.b."
+      ],
+      "steps": [
+        "Sciogliere il lievito in 50ml di acqua.",
+        "Nel frattempo, iniziare a impastare in planetaria unendo farina, yogurt e l'altra metà dell'acqua poco alla volta.",
+        "Aggiungere il sale una volta che l'impasto è ben amalgamato e continuare a lavorarlo per alcuni minuti.",
+        "Lasciare riposare il composto per 4-6 ore.",
+        "Dopo il tempo di lievitazione, pirlare l'impasto e lasciarlo riposare per altre 1-2 ore (dovrebbero formarsi circa 8 palline).",
+        "Una volta riposate, stendere le palline dando la tipica forma di barchetta con uno spessore di circa 1cm.",
+        "Cuocere su una padella rovente per pochi minuti per lato, fino a doratura.",
+        "Servire su un piatto spennellando con la salsina preparata in precedenza mescolando olio, sale e prezzemolo tritato.",
+        "Servire caldo."
+      ],
+      "notes": "Aggiungere il sale sempre lontano dal lievito. L'acqua non va mai versata tutta in una volta. È fondamentale non aprire il coperchio durante la cottura al vapore per rendere la cottura al vapore perfetta e omogenea."
+    },
+    {
+      "id": 6,
+      "name": "Onigiri di Tonno",
+      "category": "Antipasti & Piccoli Piatti",
+      "servings": "4-6 persone",
+      "time": "45 minuti",
+      "difficulty": "Facile",
+      "ingredients": [
+        "600g riso Originario",
+        "Aceto q.b.",
+        "Sale q.b.",
+        "2-3 scatole tonno in scatola all'olio d'oliva",
+        "2-3 cipollotti",
+        "Alga Nori q.b.",
+        "Maionese q.b.",
+        "Salsa di soia light q.b.",
+        "Zenzero fresco o granulare q.b.",
+        "Aglio fresco o granulare q.b."
+      ],
+      "steps": [
+        "Mettere il riso in una pentola e lavarlo con acqua fredda sciacquando per bene. Ripetere almeno 4 volte.",
+        "Riempire di acqua fredda coprendo il riso per circa 1 dito.",
+        "Accendere fuoco alto con coperchio e portare a ebollizione.",
+        "Appena l'acqua bolle, abbassare fuoco al minimo, salare leggermente l'acqua, dare una mescolata e coprire con coperchio per 15 minuti.",
+        "Dopo 15 minuti spegnere il fuoco e lasciar proseguire la cottura per altri 15 minuti (fondamentale non aprire il coperchio per i 30 minuti totali).",
+        "Per il ripieno, unire cipollotto tritato finemente, aglio/zenzero grattugiato, maionese, soia e tonno. Mescolare amalgamando bene.",
+        "Riempire la formina con metà riso, deporre il ripieno al centro, coprire con l'altra metà del riso.",
+        "Pressare e poi, una volta data la tipica forma triangolare, adagiare l'alga nori."
+      ],
+      "notes": "La cottura al vapore è fondamentale per ottenere un riso perfetto. Non aprire il coperchio durante i 30 minuti di cottura."
+    },
+    {
+      "id": 7,
+      "name": "Hummus",
+      "category": "Antipasti & Piccoli Piatti",
+      "servings": "6-8 persone",
+      "time": "45 minuti",
+      "difficulty": "Facile",
+      "ingredients": [
+        "2 barattoli di ceci lessati",
+        "Sesamo q.b.",
+        "1 limone",
+        "Cubetti di ghiaccio q.b.",
+        "Paprika q.b.",
+        "1 hummus piccante Lidl",
+        "Tabasco q.b.",
+        "Concentrato di pomodoro 1 cucchiaio",
+        "1 dado di brodo vegetale",
+        "Aglio granulare q.b."
+      ],
+      "steps": [
+        "Mescolare i ceci lessati con il sesamo q.b.",
+        "Aggiungere il succo di limone fresco.",
+        "Incorporare i cubetti di ghiaccio q.b.",
+        "Aggiungere un cucchiaio di paprika q.b.",
+        "Aggiungere l'hummus piccante Lidl come base.",
+        "Aggiungere Tabasco q.b. per il piccante.",
+        "Aggiungere il concentrato di pomodoro (1 cucchiaio).",
+        "Sciogliere il dado di brodo vegetale e aggiungerlo.",
+        "Aggiungere l'aglio granulare q.b.",
+        "Frullare tutto fino ad ottenere una consistenza cremosa."
+      ],
+      "notes": "Utilizzate la salsa tahina, se riuscite a trovarla in qualche negozio di alimentari. Potete servire con pane tostato, verdure crude o come base per altri piatti."
+    }
+  ]
+}
