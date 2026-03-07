@@ -226,6 +226,36 @@
         "Frullare tutto fino ad ottenere una consistenza cremosa."
       ],
       "notes": "Utilizzate la salsa tahina, se riuscite a trovarla in qualche negozio di alimentari. Potete servire con pane tostato, verdure crude o come base per altri piatti."
+    },
+    {
+      "id": 8,
+      "name": "Pollo Yakitori",
+      "category": "Secondi & Proteine",
+      "servings": "2 persone",
+      "time": "30 minuti",
+      "difficulty": "Facile",
+      "ingredients": [
+        "400g pollo sovracosce",
+        "15g amido/maizena",
+        "2 cucchiaini olio di sesamo",
+        "2 cucchiaini salsa di soia light",
+        "1 cucchiaio miele",
+        "1 cucchiaino salsa piccante",
+        "1 tazza acqua",
+        "3 cipollotti",
+        "Semi di sesamo q.b.",
+        "Paprika piccante q.b.",
+        "Sale q.b."
+      ],
+      "steps": [
+        "In una padella antiaderente, passare il pollo (precedentemente infarinato) a fuoco medio-alto. Cuocere 4-5 minuti per lato fino a crosta dorata.",
+        "Assemblare gli spiedini con pollo e cipollotti alternati su bastoncini di bambù bagnati.",
+        "In un pentolino, mescolare olio di sesamo, salsa di soia, miele, salsa piccante e acqua. Portare a ebollizione e ridurre per 2-3 minuti.",
+        "Versare la salsa sugli spiedini, girandoli bene per ricoprirli completamente.",
+        "Cospargere di semi di sesamo e paprika piccante.",
+        "Servire subito su un piatto bianco."
+      ],
+      "notes": "È consigliabile marinare il pollo in salsa di soia e miele per almeno 30 minuti prima di cuocere. Se non hai spiedini di bambù, puoi usare quelli di metallo. La salsa yakitori può essere preparata in anticipo e conservata in frigo per 3-4 giorni. Perfetto come antipasto o piatto principale accompagnato da riso bianco."
     }
   ]
 }

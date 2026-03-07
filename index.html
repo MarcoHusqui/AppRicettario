@@ -214,6 +214,15 @@
             opacity: 1;
         }
 
+        .category-folder-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #d97706;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 1;
+        }
+
         .category-folder-name {
             font-size: 1.1rem;
             font-weight: 600;
@@ -558,8 +567,8 @@
                 gap: 16px;
             }
 
-            .category-folder-name {
-                font-size: 0.95rem;
+            .category-folder-number {
+                font-size: 3rem;
             }
 
             .header-subtitle {
@@ -603,7 +612,7 @@
         function RicettarioApp() {
             const [recipes, setRecipes] = useState([]);
             const [searchTerm, setSearchTerm] = useState("");
-            const [selectedCategory, setSelectedCategory] = useState(null);
+            const [selectedCategoryId, setSelectedCategoryId] = useState(null);
             const [selectedRecipe, setSelectedRecipe] = useState(null);
 
             // Carica ricette dal JSON
@@ -614,16 +623,23 @@
                     .catch(err => console.error('Errore nel caricamento ricette:', err));
             }, []);
 
-            // Estrai categorie uniche
-            const categories = [...new Set(recipes.map(r => r.category))].sort().map((cat, idx) => ({
-                id: idx + 1,
-                name: cat
-            }));
+            // Categorie fisse
+            const categories = [
+                { id: 1, name: "Antipasti & Piccoli Piatti" },
+                { id: 2, name: "Zuppe, Minestre, Vellutate & Creme" },
+                { id: 3, name: "Primi & Piatti di Cereali" },
+                { id: 4, name: "Secondi & Proteine" },
+                { id: 5, name: "Contorni & Accompagnamenti" },
+                { id: 6, name: "Salse, Fondi, Riduzioni & Basi" },
+                { id: 7, name: "Dolci, Colazioni & Lievitati" },
+                { id: 8, name: "Varie" }
+            ];
 
             // Filtri ricette
+            const selectedCategory = categories.find(c => c.id === selectedCategoryId);
             const filteredRecipes = recipes.filter(recipe => {
                 const matchesSearch = recipe.name.toLowerCase().includes(searchTerm.toLowerCase());
-                const matchesCategory = !selectedCategory || recipe.category === selectedCategory;
+                const matchesCategory = !selectedCategoryId || recipe.category === selectedCategory?.name;
                 return matchesSearch && matchesCategory;
             });
 
@@ -656,8 +672,14 @@
                                     </div>
                                 </div>
 
-                                {/* Categories Title */}
-                                <h3 className="categories-title">Le tue categorie</h3>
+                                {/* Info Box */}
+                                <div className="info-box">
+                                    <p className="info-box-text">
+                                        <span className="info-box-highlight">✨ Benvenuto nel ricettario</span>
+                                        <br />
+                                        Usa la barra di ricerca per trovare le tue ricette oppure clicca su una categoria per esplorare
+                                    </p>
+                                </div>
 
                                 {/* Categories Grid */}
                                 <div className="categories-grid">
@@ -666,12 +688,12 @@
                                             key={cat.id}
                                             className="category-folder"
                                             onClick={() => {
-                                                setSelectedCategory(selectedCategory === cat.name ? null : cat.name);
+                                                setSelectedCategoryId(selectedCategoryId === cat.id ? null : cat.id);
                                                 setSearchTerm("");
                                             }}
                                             style={{
-                                                borderColor: selectedCategory === cat.name ? '#d97706' : '#d9a880',
-                                                background: selectedCategory === cat.name 
+                                                borderColor: selectedCategoryId === cat.id ? '#d97706' : '#d9a880',
+                                                background: selectedCategoryId === cat.id 
                                                     ? 'linear-gradient(135deg, #fef0d9 0%, #fee5cc 100%)'
                                                     : 'linear-gradient(135deg, #fff5e6 0%, #fef0d9 100%)'
                                             }}
@@ -685,7 +707,7 @@
                                 {filteredRecipes.length > 0 && (
                                     <>
                                         <h3 className="categories-title" style={{ marginTop: '40px' }}>
-                                            {searchTerm ? `Risultati per "${searchTerm}"` : selectedCategory || 'Tutte le ricette'}
+                                            {searchTerm ? `Risultati per "${searchTerm}"` : selectedCategory ? selectedCategory.name : 'Tutte le ricette'}
                                         </h3>
                                         <div className="recipes-grid">
                                             {filteredRecipes.map((recipe) => (
