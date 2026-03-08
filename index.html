@@ -180,368 +180,429 @@
             background: linear-gradient(135deg, #fff5e6 0%, #fef0d9 100%);
             border: 2px solid #d9a880;
             border-radius: 12px;
-            padding: 24px;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative;
-            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.1);
-        }
-
-        .category-folder::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(217, 119, 6, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: all 0.4s ease;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.08);
+            padding: 20px;
         }
 
         .category-folder:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 12px 30px rgba(217, 119, 6, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(217, 119, 6, 0.15);
+            border-color: #d97706;
+        }
+
+        .category-folder.active {
             background: linear-gradient(135deg, #fef0d9 0%, #fee5cc 100%);
             border-color: #d97706;
         }
 
-        .category-folder:hover::before {
-            opacity: 1;
-        }
-
-        .category-folder-number {
-            font-size: 4rem;
-            font-weight: 700;
-            color: #d97706;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
-            position: relative;
-            z-index: 1;
-        }
-
         .category-folder-name {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
-            color: #d97706;
+            color: #333;
             text-align: center;
-            position: relative;
-            z-index: 1;
-            line-height: 1.3;
         }
 
-        /* Recipe grid */
+        /* Grid ricette */
         .recipes-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 20px;
-            margin-bottom: 60px;
-            animation: fadeInUp 0.6s ease-out 0.2s both;
+            animation: fadeInUp 0.6s ease-out 0.3s both;
         }
 
+        @media (min-width: 768px) {
+            .recipes-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Cartella ricetta */
         .recipe-card {
             background: white;
-            border: 2px solid #e0d5c7;
-            border-radius: 8px;
+            border: 2px solid #e8d4b8;
+            border-radius: 12px;
             padding: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: relative;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .recipe-card:hover {
-            border-color: #d97706;
-            box-shadow: 0 8px 20px rgba(217, 119, 6, 0.15);
             transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(217, 119, 6, 0.15);
+            border-color: #d97706;
         }
 
         .recipe-card-name {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #333;
+            color: #1a1a1a;
             margin-bottom: 8px;
+            font-family: 'Noto Serif JP', serif;
         }
 
         .recipe-card-category {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #d97706;
             margin-bottom: 12px;
+            font-weight: 500;
         }
 
         .recipe-card-info {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             font-size: 0.85rem;
-            color: #999;
-            flex-wrap: wrap;
+            color: #666;
         }
 
-        /* Bio section */
-        .bio-section {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border-left: 4px solid #d97706;
-            border-radius: 8px;
-            padding: 32px;
-            max-width: 800px;
-            margin: 60px auto;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            animation: fadeInUp 0.6s ease-out 0.3s both;
+        /* Info box */
+        .info-box {
+            background: linear-gradient(135deg, #fff5e6 0%, #fef0d9 100%);
+            border: 2px solid #d9a880;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 50px 0;
+            text-align: center;
         }
 
-        .bio-title {
+        .info-box-text {
             color: #333;
-            font-size: 1.3rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .info-box-highlight {
             font-weight: 600;
-            margin-bottom: 12px;
+            color: #d97706;
+            font-size: 1.1rem;
+        }
+
+        /* Bio Section */
+        .bio-section {
+            background: white;
+            border: 2px solid #e8d4b8;
+            border-radius: 12px;
+            padding: 40px;
+            margin: 50px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
         .bio-subtitle {
+            text-align: center;
+            font-size: 0.9rem;
             color: #d97706;
-            font-size: 0.95rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-weight: 600;
+            letter-spacing: 2px;
             margin-bottom: 16px;
         }
 
+        .bio-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+            font-family: 'Noto Serif JP', serif;
+        }
+
         .bio-content {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            text-align: center;
+        }
+
+        .bio-placeholder {
             color: #666;
             font-size: 1rem;
             line-height: 1.8;
         }
 
-        .bio-placeholder {
-            color: #999;
-            font-style: italic;
-        }
-
-        /* Social links section */
+        /* Social Section */
         .social-section {
             margin-top: 40px;
-            padding-top: 32px;
-            border-top: 1px solid #e0d5c7;
+            padding-top: 30px;
+            border-top: 1px solid #e8d4b8;
         }
 
         .social-title {
+            text-align: center;
+            font-size: 1.2rem;
             color: #333;
-            font-size: 1.1rem;
-            font-weight: 600;
             margin-bottom: 20px;
+            font-family: 'Noto Serif JP', serif;
         }
 
         .social-links {
             display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
+            gap: 15px;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .social-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
             padding: 10px 20px;
             background: linear-gradient(135deg, #fff5e6 0%, #fef0d9 100%);
             border: 2px solid #d9a880;
-            border-radius: 6px;
-            color: #d97706;
+            border-radius: 8px;
+            color: #1a1a1a;
             text-decoration: none;
-            font-weight: 500;
             transition: all 0.3s ease;
-            cursor: pointer;
+            font-weight: 500;
         }
 
         .social-link:hover {
-            background: linear-gradient(135deg, #fef0d9 0%, #fee5cc 100%);
             border-color: #d97706;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.15);
+            background: linear-gradient(135deg, #fed7aa 0%, #fecaca 100%);
         }
 
-        /* Contact section */
-        .contact-section {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid #e0d5c7;
-            border-radius: 8px;
-            padding: 32px;
-            max-width: 600px;
-            margin: 60px auto;
-            text-align: center;
-            animation: fadeInUp 0.6s ease-out 0.4s both;
-        }
-
-        .contact-title {
-            color: #333;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 24px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .contact-item {
-            color: #666;
-            font-size: 1rem;
-        }
-
-        .contact-item-label {
-            color: #d97706;
-            font-weight: 600;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .contact-item-value {
-            color: #333;
-        }
-
-        .contact-item a {
-            color: #d97706;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: #d97706;
-            text-decoration: underline;
-        }
-
-        /* Info box */
-        .info-box {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-            border-left: 4px solid #d97706;
-            border-radius: 8px;
-            padding: 24px;
-            max-width: 600px;
-            margin: 40px auto;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            animation: fadeInUp 0.6s ease-out 0.3s both;
-        }
-
-        .info-box-text {
-            text-align: center;
-            color: #555;
-            font-size: 1rem;
-        }
-
-        .info-box-highlight {
-            color: #d97706;
-            font-weight: 600;
-        }
-
-        /* Recipe detail */
+        /* Recipe Detail */
         .recipe-detail {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 8px;
+            background: white;
+            border-radius: 12px;
             padding: 40px;
-            max-width: 900px;
-            margin: 0 auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            animation: fadeInUp 0.6s ease-out;
         }
 
         .back-button {
-            background: #d97706;
-            color: white;
-            border: none;
+            background: linear-gradient(135deg, #fff5e6 0%, #fef0d9 100%);
+            border: 2px solid #d9a880;
             padding: 10px 20px;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
+            font-weight: 500;
+            color: #1a1a1a;
+            transition: all 0.3s ease;
             margin-bottom: 30px;
-            font-size: 1rem;
-            transition: background 0.3s ease;
+            font-family: 'Poppins', sans-serif;
         }
 
         .back-button:hover {
-            background: #c4660e;
+            border-color: #d97706;
+            background: linear-gradient(135deg, #fed7aa 0%, #fecaca 100%);
         }
 
         .recipe-detail-title {
             font-size: 2.5rem;
-            color: #333;
+            color: #1a1a1a;
             margin-bottom: 10px;
         }
 
         .recipe-detail-category {
             color: #d97706;
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin-bottom: 20px;
+            font-weight: 600;
         }
 
         .recipe-detail-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 16px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #fff5e6 0%, #fef0d9 100%);
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .recipe-detail-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .recipe-detail-item {
-            background: #fff5e6;
-            padding: 16px;
-            border-radius: 6px;
+            text-align: center;
         }
 
         .recipe-detail-item-label {
-            color: #d97706;
             font-size: 0.9rem;
+            color: #d97706;
             font-weight: 600;
+            margin-bottom: 8px;
         }
 
         .recipe-detail-item-value {
             font-size: 1.1rem;
-            font-weight: bold;
-            color: #333;
+            color: #1a1a1a;
+            font-weight: 600;
         }
 
         .recipe-detail-notes {
-            background: #fffbf0;
+            background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 100%);
             border-left: 4px solid #d97706;
-            padding: 16px;
-            margin-bottom: 30px;
-            border-radius: 4px;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 8px;
+            color: #333;
         }
 
         .recipe-detail-section {
-            margin-top: 30px;
-            margin-bottom: 30px;
+            margin: 40px 0;
         }
 
         .recipe-detail-section-title {
-            font-size: 1.8rem;
-            color: #333;
-            margin-bottom: 16px;
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-family: 'Noto Serif JP', serif;
         }
 
         .recipe-ingredients {
-            columns: 2;
-            column-gap: 30px;
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
         }
 
         .recipe-ingredients li {
-            margin-bottom: 12px;
-            color: #666;
+            padding: 10px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 8px;
+            color: #333;
         }
 
         .recipe-steps ol {
-            margin-bottom: 30px;
+            list-style-position: inside;
+            color: #333;
+            line-height: 2;
         }
 
         .recipe-steps li {
-            margin-bottom: 16px;
-            color: #666;
-            line-height: 1.8;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-radius: 8px;
         }
 
-        .recipe-steps li strong {
-            color: #d97706;
+        /* Modal Share */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.3s ease-out;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .close-button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s ease;
+        }
+
+        .close-button:hover {
+            color: #333;
+        }
+
+        .share-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .share-button {
+            padding: 15px;
+            background: linear-gradient(135deg, #fff5e6 0%, #fef0d9 100%);
+            border: 2px solid #d9a880;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #1a1a1a;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .share-button:hover {
+            border-color: #d97706;
+            background: linear-gradient(135deg, #fed7aa 0%, #fecaca 100%);
+            transform: translateX(5px);
+        }
+
+        .share-button-icon {
+            font-size: 1.5rem;
+        }
+
+        .share-button-text {
+            flex: 1;
+        }
+
+        .share-button-title {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 3px;
+        }
+
+        .share-button-desc {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .public-link-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .public-link-box p {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .public-link-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #d9a880;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            background: white;
+            cursor: text;
         }
 
         /* Animazioni */
@@ -556,74 +617,283 @@
             }
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-title {
-                font-size: 2.5rem;
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
-
-            .categories-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 16px;
-            }
-
-            .category-folder-number {
-                font-size: 3rem;
-            }
-
-            .header-subtitle {
-                font-size: 0.95rem;
-            }
-
-            .bio-section,
-            .contact-section {
-                padding: 24px;
-            }
-
-            .social-links {
-                flex-direction: column;
-            }
-
-            .social-link {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .recipe-detail {
-                padding: 24px;
-            }
-
-            .recipe-detail-title {
-                font-size: 1.8rem;
-            }
-
-            .recipe-ingredients {
-                columns: 1;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
 </head>
 <body>
     <div id="root"></div>
-    
+
     <script type="text/babel">
-        const { useState, useEffect } = React;
+        const RicettarioApp = () => {
+            const recipes = [
+                {
+                    "id": 1,
+                    "name": "Chili con Carne",
+                    "category": "Secondi & Proteine",
+                    "servings": "6 persone",
+                    "time": "60 minuti",
+                    "difficulty": "Facile",
+                    "ingredients": [
+                        "2 cipolle bianche",
+                        "2 spicchi d'aglio",
+                        "600g macinato di manzo",
+                        "1 birra per sfumare",
+                        "700ml passata di pomodoro",
+                        "3 scatole fagioli Frijoles",
+                        "2 peperoni rossi",
+                        "1 provola affumicata",
+                        "2 mais piccoli",
+                        "2 cubetti cioccolato fondente",
+                        "16-24 tortillas medie",
+                        "2 confezioni spezie messicane x tacos",
+                        "Zucchero q.b.",
+                        "Sale q.b.",
+                        "Peperoncino fresco q.b."
+                    ],
+                    "steps": [
+                        "In una padella capiente, far soffriggere la cipolla insieme all'aglio leggermente schiacciato.",
+                        "Aggiungere i peperoni a cubetti e lasciarli insaporire per qualche minuto.",
+                        "Unire la carne macinata e rosolarla bene fino a sigillarla.",
+                        "Sfumare con la birra e lasciar evaporare.",
+                        "Incorporare le spezie messicane, poi aggiungere i fagioli e la passata di pomodoro.",
+                        "Proseguire la cottura regolando di sale e zucchero.",
+                        "A fine cottura, completare con provola a cubetti, mais, peperoncino fresco e qualche scaglia di cioccolato fondente.",
+                        "Servire con tortillas riscaldate in forno e accompagnare con salse a piacere."
+                    ],
+                    "notes": "È consigliabile preparare il chili il giorno prima, così avrà il tempo di insaporirsi meglio."
+                },
+                {
+                    "id": 2,
+                    "name": "Brodo per Tortellini",
+                    "category": "Zuppe, Minestre, Vellutate & Creme",
+                    "servings": "6-8 persone",
+                    "time": "180 minuti",
+                    "difficulty": "Media",
+                    "ingredients": [
+                        "3 sedanini",
+                        "3 carote",
+                        "1 cipolla",
+                        "1 pomodoro",
+                        "600-800g spolpati di manzo",
+                        "1kg faraona",
+                        "4 dadi di carne",
+                        "4L acqua fredda",
+                        "Sale q.b."
+                    ],
+                    "steps": [
+                        "Mettere in una pentola grande da 6L: sedano, carote, cipolla, pomodoro, manzo e faraona.",
+                        "Aggiungere 4L di acqua fredda.",
+                        "Accendere il fuoco a media intensità con coperchio.",
+                        "Quando bolle, togliere il coperchio e togliere la schiuma 2-3 volte.",
+                        "Abbassare a fuoco basso e aggiungere i 4 dadi, salare un poco.",
+                        "Coprire e lasciare andare a fuoco lento per 1 ora e mezza.",
+                        "Togliere la faraona e rimettere il coperchio per altre 1 ora e mezza.",
+                        "Spegnere, togliere verdure e ossa.",
+                        "Lasciare il brodo in balcone tutta la notte.",
+                        "Il giorno dopo, sgrassare il brodo."
+                    ],
+                    "notes": "Ricetta della nonna Giulia. Permettere 30 tortellini a testa. Importante sgrassare il brodo il giorno seguente."
+                },
+                {
+                    "id": 3,
+                    "name": "Pennette alla Vodka",
+                    "category": "Primi & Piatti di Cereali",
+                    "servings": "2 persone",
+                    "time": "25 minuti",
+                    "difficulty": "Facile",
+                    "ingredients": [
+                        "250g pennette",
+                        "100g pancetta affumicata (o 150g salmone affumicato)",
+                        "100ml vodka",
+                        "200ml panna",
+                        "200ml sugo di pomodori pelati",
+                        "1 cipolla",
+                        "Prezzemolo fresco q.b.",
+                        "Olio EVO q.b.",
+                        "Pepe q.b."
+                    ],
+                    "steps": [
+                        "In una padella grande, rosolare la cipolla con olio.",
+                        "Aggiungere la pancetta affumicata (o il salmone affumicato) e farla rosolare.",
+                        "Sfumare con la vodka e dare fuoco, attendere che le fiamme si spengano.",
+                        "Aggiungere il sugo di pomodoro pelati e la panna.",
+                        "Far ridurre il tutto a fuoco medio.",
+                        "Scolare la pasta direttamente nella padella.",
+                        "Mantecare aggiungendo il prezzemolo fresco (o l'erba cipollina)."
+                    ],
+                    "notes": "Per una variante più leggera, usare il salmone affumicato al posto della pancetta."
+                },
+                {
+                    "id": 4,
+                    "name": "Risotto all'Amarone della Valpolicella",
+                    "category": "Primi & Piatti di Cereali",
+                    "servings": "2 persone",
+                    "time": "30 minuti",
+                    "difficulty": "Media",
+                    "ingredients": [
+                        "400g riso Vialone Nano o San Marco",
+                        "2 scalogni",
+                        "80g burro congelato",
+                        "100g Grana Padano grattugiato",
+                        "150g formaggio Fontal",
+                        "1 bottiglia Amarone della Valpolicella",
+                        "1L brodo di carne",
+                        "Olio EVO q.b.",
+                        "Sale q.b.",
+                        "Pepe q.b."
+                    ],
+                    "steps": [
+                        "In una casseruola ampia, versare un filo d'olio e far soffriggere lo scalogno.",
+                        "Una volta dorato, mettere lo scalogno da parte e pulire grossolanamente la casseruola.",
+                        "Tostare il riso fino a quando sarà così caldo da non riuscire a tenerlo in mano.",
+                        "Nel frattempo, scaldare 1 litro di brodo di carne.",
+                        "Aggiungere l'Amarone della Valpolicella al riso e iniziare la risottatura, facendo sfumare lentamente tutta la parte alcolica.",
+                        "Una volta terminato il vino, proseguire con il brodo, aggiungendolo un mestolo alla volta, fino a cottura ultimata.",
+                        "Dopo circa 20 minuti, aggiungere lo scalogno, spegnere il fuoco e spostare la casseruola su un sottopentola.",
+                        "Coprire la casseruola con un panno che aderisca bene (mettere un tagliere sopra il panno come peso).",
+                        "Lasciare riposare per 3 minuti.",
+                        "Aggiungere il Grana Padano e il formaggio Fontal freddi da frigorifero e il burro ghiacciato da freezer.",
+                        "Mantecare delicatamente fino a incorporare aria e rendere il risotto cremoso.",
+                        "Servire con un mestolo abbondante al centro del piatto, battere leggermente il retro per appiatire il risotto.",
+                        "Spolverare con pepe e servire subito."
+                    ],
+                    "notes": "La manteatura è fondamentale per ottenere la giusta cremosità. Utilizzare ingredienti freddi per il giusto contrasto di temperature."
+                },
+                {
+                    "id": 5,
+                    "name": "Pane Naan",
+                    "category": "Dolci, Colazioni & Lievitati",
+                    "servings": "2-4 persone",
+                    "time": "480 minuti",
+                    "difficulty": "Media",
+                    "ingredients": [
+                        "500g farina 00",
+                        "250ml yogurt bianco naturale",
+                        "100ml acqua tiepida",
+                        "7g sale",
+                        "6g lievito di birra fresco",
+                        "Olio EVO q.b.",
+                        "Sale q.b.",
+                        "Prezzemolo q.b."
+                    ],
+                    "steps": [
+                        "Sciogliere il lievito in 50ml di acqua.",
+                        "Nel frattempo, iniziare a impastare in planetaria unendo farina, yogurt e l'altra metà dell'acqua poco alla volta.",
+                        "Aggiungere il sale una volta che l'impasto è ben amalgamato e continuare a lavorarlo per alcuni minuti.",
+                        "Lasciare riposare il composto per 4-6 ore.",
+                        "Dopo il tempo di lievitazione, pirlare l'impasto e lasciarlo riposare per altre 1-2 ore (dovrebbero formarsi circa 8 palline).",
+                        "Una volta riposate, stendere le palline dando la tipica forma di barchetta con uno spessore di circa 1cm.",
+                        "Cuocere su una padella rovente per pochi minuti per lato, fino a doratura.",
+                        "Servire su un piatto spennellando con la salsina preparata in precedenza mescolando olio, sale e prezzemolo tritato.",
+                        "Servire caldo."
+                    ],
+                    "notes": "Aggiungere il sale sempre lontano dal lievito. L'acqua non va mai versata tutta in una volta. È fondamentale non aprire il coperchio durante la cottura al vapore per rendere la cottura al vapore perfetta e omogenea."
+                },
+                {
+                    "id": 6,
+                    "name": "Onigiri di Tonno",
+                    "category": "Antipasti & Piccoli Piatti",
+                    "servings": "4-6 persone",
+                    "time": "45 minuti",
+                    "difficulty": "Facile",
+                    "ingredients": [
+                        "600g riso Originario",
+                        "Aceto q.b.",
+                        "Sale q.b.",
+                        "2-3 scatole tonno in scatola all'olio d'oliva",
+                        "2-3 cipollotti",
+                        "Alga Nori q.b.",
+                        "Maionese q.b.",
+                        "Salsa di soia light q.b.",
+                        "Zenzero fresco o granulare q.b.",
+                        "Aglio fresco o granulare q.b."
+                    ],
+                    "steps": [
+                        "Mettere il riso in una pentola e lavarlo con acqua fredda sciacquando per bene. Ripetere almeno 4 volte.",
+                        "Riempire di acqua fredda coprendo il riso per circa 1 dito.",
+                        "Accendere fuoco alto con coperchio e portare a ebollizione.",
+                        "Appena l'acqua bolle, abbassare fuoco al minimo, salare leggermente l'acqua, dare una mescolata e coprire con coperchio per 15 minuti.",
+                        "Dopo 15 minuti spegnere il fuoco e lasciar proseguire la cottura per altri 15 minuti (fondamentale non aprire il coperchio per i 30 minuti totali).",
+                        "Per il ripieno, unire cipollotto tritato finemente, aglio/zenzero grattugiato, maionese, soia e tonno. Mescolare amalgamando bene.",
+                        "Riempire la formina con metà riso, deporre il ripieno al centro, coprire con l'altra metà del riso.",
+                        "Pressare e poi, una volta data la tipica forma triangolare, adagiare l'alga nori."
+                    ],
+                    "notes": "La cottura al vapore è fondamentale per ottenere un riso perfetto. Non aprire il coperchio durante i 30 minuti di cottura."
+                },
+                {
+                    "id": 7,
+                    "name": "Hummus",
+                    "category": "Antipasti & Piccoli Piatti",
+                    "servings": "6-8 persone",
+                    "time": "45 minuti",
+                    "difficulty": "Facile",
+                    "ingredients": [
+                        "2 barattoli di ceci lessati",
+                        "Sesamo q.b.",
+                        "1 limone",
+                        "Cubetti di ghiaccio q.b.",
+                        "Paprika q.b.",
+                        "1 hummus piccante Lidl",
+                        "Tabasco q.b.",
+                        "Concentrato di pomodoro 1 cucchiaio",
+                        "1 dado di brodo vegetale",
+                        "Aglio granulare q.b."
+                    ],
+                    "steps": [
+                        "Mescolare i ceci lessati con il sesamo q.b.",
+                        "Aggiungere il succo di limone fresco.",
+                        "Incorporare i cubetti di ghiaccio q.b.",
+                        "Aggiungere un cucchiaio di paprika q.b.",
+                        "Aggiungere l'hummus piccante Lidl come base.",
+                        "Aggiungere Tabasco q.b. per il piccante.",
+                        "Aggiungere il concentrato di pomodoro (1 cucchiaio).",
+                        "Sciogliere il dado di brodo vegetale e aggiungerlo.",
+                        "Aggiungere l'aglio granulare q.b.",
+                        "Frullare tutto fino ad ottenere una consistenza cremosa."
+                    ],
+                    "notes": "Utilizzate la salsa tahina, se riuscite a trovarla in qualche negozio di alimentari. Potete servire con pane tostato, verdure crude o come base per altri piatti."
+                },
+                {
+                    "id": 8,
+                    "name": "Pollo Yakitori",
+                    "category": "Secondi & Proteine",
+                    "servings": "2 persone",
+                    "time": "30 minuti",
+                    "difficulty": "Facile",
+                    "ingredients": [
+                        "400g pollo sovracosce",
+                        "15g amido/maizena",
+                        "2 cucchiaini olio di sesamo",
+                        "2 cucchiaini salsa di soia light",
+                        "1 cucchiaio miele",
+                        "1 cucchiaino salsa piccante",
+                        "1 tazza acqua",
+                        "3 cipollotti",
+                        "Semi di sesamo q.b.",
+                        "Paprika piccante q.b.",
+                        "Sale q.b."
+                    ],
+                    "steps": [
+                        "In una padella antiaderente, passare il pollo (precedentemente infarinato) a fuoco medio-alto. Cuocere 4-5 minuti per lato fino a crosta dorata.",
+                        "Assemblare gli spiedini con pollo e cipollotti alternati su bastoncini di bambù bagnati.",
+                        "In un pentolino, mescolare olio di sesamo, salsa di soia, miele, salsa piccante e acqua. Portare a ebollizione e ridurre per 2-3 minuti.",
+                        "Versare la salsa sugli spiedini, girandoli bene per ricoprirli completamente.",
+                        "Cospargere di semi di sesamo e paprika piccante.",
+                        "Servire subito su un piatto bianco."
+                    ],
+                    "notes": "È consigliabile marinare il pollo in salsa di soia e miele per almeno 30 minuti prima di cuocere. Se non hai spiedini di bambù, puoi usare quelli di metallo. La salsa yakitori può essere preparata in anticipo e conservata in frigo per 3-4 giorni. Perfetto come antipasto o piatto principale accompagnato da riso bianco."
+                }
+            ];
 
-        function RicettarioApp() {
-            const [recipes, setRecipes] = useState([]);
-            const [searchTerm, setSearchTerm] = useState("");
-            const [selectedCategoryId, setSelectedCategoryId] = useState(null);
-            const [selectedRecipe, setSelectedRecipe] = useState(null);
-
-            // Carica ricette dal JSON
-            useEffect(() => {
-                fetch('ricette.json')
-                    .then(res => res.json())
-                    .then(data => setRecipes(data.ricette))
-                    .catch(err => console.error('Errore nel caricamento ricette:', err));
-            }, []);
-
-            // Categorie fisse
             const categories = [
                 { id: 1, name: "Antipasti & Piccoli Piatti" },
                 { id: 2, name: "Zuppe, Minestre, Vellutate & Creme" },
@@ -635,22 +905,99 @@
                 { id: 8, name: "Varie" }
             ];
 
-            // Filtri ricette
-            const selectedCategory = categories.find(c => c.id === selectedCategoryId);
+            const [selectedRecipe, setSelectedRecipe] = React.useState(null);
+            const [selectedCategoryId, setSelectedCategoryId] = React.useState(null);
+            const [searchTerm, setSearchTerm] = React.useState("");
+            const [showShareModal, setShowShareModal] = React.useState(false);
+            const [publicId, setPublicId] = React.useState("");
+
+            React.useEffect(() => {
+                const saved = localStorage.getItem('publicId');
+                if (!saved) {
+                    const id = Math.random().toString(36).substring(7);
+                    localStorage.setItem('publicId', id);
+                    setPublicId(id);
+                } else {
+                    setPublicId(saved);
+                }
+            }, []);
+
+            const selectedCategory = selectedCategoryId ? categories.find(cat => cat.id === selectedCategoryId) : null;
+            
             const filteredRecipes = recipes.filter(recipe => {
-                const matchesSearch = recipe.name.toLowerCase().includes(searchTerm.toLowerCase());
                 const matchesCategory = !selectedCategoryId || recipe.category === selectedCategory?.name;
-                return matchesSearch && matchesCategory;
+                const matchesSearch = recipe.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    recipe.ingredients.some(ing => ing.toLowerCase().includes(searchTerm.toLowerCase()));
+                return matchesCategory && matchesSearch;
             });
+
+            const generateQRCode = (text) => {
+                const encodedText = encodeURIComponent(text);
+                return `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodedText}`;
+            };
+
+            const copyToClipboard = (recipe) => {
+                const text = `
+📖 ${recipe.name}
+Categoria: ${recipe.category}
+
+⏱️ TEMPI:
+Tempo: ${recipe.time} | Difficoltà: ${recipe.difficulty}
+Persone: ${recipe.servings}
+
+🥘 INGREDIENTI:
+${recipe.ingredients.map(ing => `• ${ing}`).join('\n')}
+
+👨‍🍳 PREPARAZIONE:
+${recipe.steps.map((step, idx) => `${idx + 1}. ${step}`).join('\n')}
+
+${recipe.notes ? `💡 NOTA: ${recipe.notes}` : ''}
+                `;
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('✅ Ricetta copiata negli appunti!');
+                    setShowShareModal(false);
+                });
+            };
+
+            const downloadAsText = (recipe) => {
+                const text = `
+📖 ${recipe.name}
+Categoria: ${recipe.category}
+
+⏱️ TEMPI:
+Tempo: ${recipe.time} | Difficoltà: ${recipe.difficulty}
+Persone: ${recipe.servings}
+
+🥘 INGREDIENTI:
+${recipe.ingredients.map(ing => `• ${ing}`).join('\n')}
+
+👨‍🍳 PREPARAZIONE:
+${recipe.steps.map((step, idx) => `${idx + 1}. ${step}`).join('\n')}
+
+${recipe.notes ? `💡 NOTA: ${recipe.notes}` : ''}
+                `;
+                const element = document.createElement('a');
+                element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+                element.setAttribute('download', `${recipe.name}.txt`);
+                element.style.display = 'none';
+                document.body.appendChild(element);
+                element.click();
+                document.body.removeChild(element);
+                setShowShareModal(false);
+            };
+
+            const getPublicLink = (recipeId) => {
+                return `${window.location.origin}${window.location.pathname}?share=${publicId}&recipe=${recipeId}`;
+            };
 
             return (
                 <div className="oriental-bg">
                     {/* Header */}
                     <div className="header-container">
                         <div className="header-content">
-                            <h1 className="header-title">IL RICETTARIO DI HUSQUI</h1>
+                            <h1 className="header-title">🍳 Il Ricettario di Husqui 🍜</h1>
                             <div className="decorative-line"></div>
-                            <p className="header-subtitle">La raccolta delle mie migliori ricette</p>
+                            <p className="header-subtitle">Ricette autentiche e gustose</p>
                         </div>
                     </div>
 
@@ -658,13 +1005,13 @@
                     <div className="main-content">
                         {!selectedRecipe ? (
                             <>
-                                {/* Search Bar */}
+                                {/* Search */}
                                 <div className="search-section">
                                     <div className="search-container">
                                         <span className="search-icon">🔍</span>
                                         <input
                                             type="text"
-                                            placeholder="Cerca le tue ricette..."
+                                            placeholder="Cerca una ricetta o ingrediente..."
                                             value={searchTerm}
                                             onChange={(e) => setSearchTerm(e.target.value)}
                                             className="search-input"
@@ -672,30 +1019,26 @@
                                     </div>
                                 </div>
 
-                                {/* Info Box */}
-                                <div className="info-box">
-                                    <p className="info-box-text">
-                                        <span className="info-box-highlight">✨ Benvenuto nel ricettario</span>
-                                        <br />
-                                        Usa la barra di ricerca per trovare le tue ricette oppure clicca su una categoria per esplorare
-                                    </p>
-                                </div>
+                                {/* Info Box - Mostra sempre se non c'è categoria selezionata */}
+                                {!selectedCategoryId && !searchTerm && (
+                                    <div className="info-box">
+                                        <p className="info-box-text">
+                                            <span className="info-box-highlight">✨ Benvenuto nel ricettario</span>
+                                            <br />
+                                            Usa la barra di ricerca per trovare le tue ricette oppure clicca su una categoria per esplorare
+                                        </p>
+                                    </div>
+                                )}
 
-                                {/* Categories Grid */}
+                                {/* Categories Grid - SEMPRE VISIBILI */}
                                 <div className="categories-grid">
                                     {categories.map((cat) => (
                                         <div
                                             key={cat.id}
-                                            className="category-folder"
+                                            className={`category-folder ${selectedCategoryId === cat.id ? 'active' : ''}`}
                                             onClick={() => {
                                                 setSelectedCategoryId(selectedCategoryId === cat.id ? null : cat.id);
                                                 setSearchTerm("");
-                                            }}
-                                            style={{
-                                                borderColor: selectedCategoryId === cat.id ? '#d97706' : '#d9a880',
-                                                background: selectedCategoryId === cat.id 
-                                                    ? 'linear-gradient(135deg, #fef0d9 0%, #fee5cc 100%)'
-                                                    : 'linear-gradient(135deg, #fff5e6 0%, #fef0d9 100%)'
                                             }}
                                         >
                                             <div className="category-folder-name">{cat.name}</div>
@@ -703,11 +1046,11 @@
                                     ))}
                                 </div>
 
-                                {/* Recipes Grid */}
-                                {filteredRecipes.length > 0 && (
+                                {/* Recipes Grid - Appare se c'è categoria selezionata o ricerca */}
+                                {filteredRecipes.length > 0 && (searchTerm || selectedCategoryId) && (
                                     <>
                                         <h3 className="categories-title" style={{ marginTop: '40px' }}>
-                                            {searchTerm ? `Risultati per "${searchTerm}"` : selectedCategory ? selectedCategory.name : 'Tutte le ricette'}
+                                            {searchTerm ? `Risultati per "${searchTerm}"` : selectedCategory?.name}
                                         </h3>
                                         <div className="recipes-grid">
                                             {filteredRecipes.map((recipe) => (
@@ -750,34 +1093,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                {/* Contact Section */}
-                                <div className="contact-section">
-                                    <h2 className="contact-title">Contatti</h2>
-                                    <div className="contact-info">
-                                        <div className="contact-item">
-                                            <span className="contact-item-label">Email</span>
-                                            <span className="contact-item-value">
-                                                <a href="mailto:busetti.marco@hotmail.it">busetti.marco@hotmail.it</a>
-                                            </span>
-                                        </div>
-                                        <div className="contact-item">
-                                            <span className="contact-item-label">Telefono</span>
-                                            <span className="contact-item-value">
-                                                <a href="tel:+393923511431">+39 392 351 1431</a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Info Box */}
-                                <div className="info-box">
-                                    <p className="info-box-text">
-                                        <span className="info-box-highlight">✨ Benvenuto nel ricettario</span>
-                                        <br />
-                                        Usa la barra di ricerca per trovare le tue ricette oppure clicca su una categoria per esplorare
-                                    </p>
-                                </div>
                             </>
                         ) : (
                             /* Recipe Detail */
@@ -789,8 +1104,19 @@
                                     ← Torna indietro
                                 </button>
 
-                                <h1 className="recipe-detail-title">{selectedRecipe.name}</h1>
-                                <p className="recipe-detail-category">{selectedRecipe.category}</p>
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
+                                    <div>
+                                        <h1 className="recipe-detail-title">{selectedRecipe.name}</h1>
+                                        <p className="recipe-detail-category">{selectedRecipe.category}</p>
+                                    </div>
+                                    <button 
+                                        onClick={() => setShowShareModal(true)}
+                                        className="back-button"
+                                        style={{ marginBottom: '0' }}
+                                    >
+                                        🔗 Condividi
+                                    </button>
+                                </div>
 
                                 <div className="recipe-detail-grid">
                                     <div className="recipe-detail-item">
@@ -835,9 +1161,71 @@
                             </div>
                         )}
                     </div>
+
+                    {/* Share Modal */}
+                    {showShareModal && selectedRecipe && (
+                        <div className="modal-overlay" onClick={() => setShowShareModal(false)}>
+                            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                                <div className="modal-header">
+                                    <h2 className="modal-title">Condividi Ricetta</h2>
+                                    <button className="close-button" onClick={() => setShowShareModal(false)}>×</button>
+                                </div>
+
+                                <div className="share-options">
+                                    <button 
+                                        className="share-button"
+                                        onClick={() => copyToClipboard(selectedRecipe)}
+                                    >
+                                        <div className="share-button-icon">📋</div>
+                                        <div className="share-button-text">
+                                            <div className="share-button-title">Copia Testo</div>
+                                            <div className="share-button-desc">Copia negli appunti</div>
+                                        </div>
+                                    </button>
+
+                                    <button 
+                                        className="share-button"
+                                        onClick={() => downloadAsText(selectedRecipe)}
+                                    >
+                                        <div className="share-button-icon">📥</div>
+                                        <div className="share-button-text">
+                                            <div className="share-button-title">Scarica Testo</div>
+                                            <div className="share-button-desc">Esporta come file</div>
+                                        </div>
+                                    </button>
+
+                                    <button 
+                                        className="share-button"
+                                        onClick={() => {
+                                            const link = getPublicLink(selectedRecipe.id);
+                                            const img = generateQRCode(link);
+                                            window.open(img, '_blank');
+                                        }}
+                                    >
+                                        <div className="share-button-icon">📱</div>
+                                        <div className="share-button-text">
+                                            <div className="share-button-title">QR Code</div>
+                                            <div className="share-button-desc">Genera codice QR</div>
+                                        </div>
+                                    </button>
+
+                                    <div className="public-link-box">
+                                        <p>🔗 Link pubblico condivisibile:</p>
+                                        <input 
+                                            type="text" 
+                                            className="public-link-input"
+                                            value={getPublicLink(selectedRecipe.id)}
+                                            readOnly
+                                            onClick={(e) => e.target.select()}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
             );
-        }
+        };
 
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<RicettarioApp />);
